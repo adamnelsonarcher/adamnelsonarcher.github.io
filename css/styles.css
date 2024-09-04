@@ -10,7 +10,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url('../images/screenshot.png');
+    background-image: url('/images/screenshot.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -26,35 +26,40 @@ body {
     flex-direction: column;
 }
 
+
+/* Invisible Button */
+#revealButton {
+    position: absolute;
+    top: 10px;  /* Adjust as needed */
+    left: 10px; /* Adjust as needed */
+    width: 180px; /* Adjust width */
+    height: 60px; /* Adjust height */
+    z-index: 1000; /* Ensure it's on top */
+}
+
+
+/* Initially Hidden Container */
+.hidden {
+    display: none;
+}
+
 #qrcode {
     position: absolute;
-    width: 128px;  /* Adjust size as needed */
-    height: 128px; /* Adjust size as needed */
-    top: 50%;      /* Positioning */
-    left: 50%;     /* Positioning */
+    width: 170px;  /* Adjust size as needed */
+    height: 170px; /* Adjust size as needed */
+    top: 550px;      /* Positioning */
+    left: 112px;     /* Positioning */
     transform: translate(-50%, -50%); /* Center the QR code */
 }
 
 input[type="text"] {
     position: absolute;
-    bottom: 20%; /* Position input field towards the bottom */
+    bottom: 10%; /* Position input field towards the bottom */
     width: 80%;
     padding: 10px;
     font-size: 18px;
     border-radius: 5px;
     border: 1px solid #ccc;
-}
-
-button {
-    position: absolute;
-    bottom: 10%; /* Position button below the input field */
-    padding: 10px 20px;
-    font-size: 18px;
-    background-color: #d9ff00;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
 }
 
 button:hover {

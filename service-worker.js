@@ -5,8 +5,6 @@ self.addEventListener('install', function(event) {
                 '/',
                 '/index.html',
                 '/manifest.json',
-                '/qrcode.min.js',
-                // Add other assets to cache
             ]);
         })
     );
