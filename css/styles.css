@@ -75,7 +75,7 @@ body {
     width: 170px;  /* Adjust size as needed */
     height: 170px; /* Adjust size as needed */
     top: 67.5%;      /* Positioning */
-    left: 51.5%;     /* Positioning */
+    left: 52%;     /* Positioning */
     transform: translate(-50%, -50%); /* Center the QR code */
 }
 
