@@ -1,0 +1,21 @@
+{
+    "short_name": "QR App",
+    "name": "QR Code Generator App",
+    "icons": [
+      {
+        "src": "/path/to/icon-192x192.png",
+        "type": "image/png",
+        "sizes": "192x192"
+      },
+      {
+        "src": "/path/to/icon-512x512.png",
+        "type": "image/png",
+        "sizes": "512x512"
+      }
+    ],
+    "start_url": ".",
+    "display": "standalone",
+    "theme_color": "#000000",
+    "background_color": "#ffffff"
+  }
+  
