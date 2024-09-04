@@ -10,7 +10,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url('/images/screenshot.png');
+    background-image: url('/images/blank_template.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -28,15 +28,42 @@ body {
 
 
 /* Invisible Button */
-#revealButton {
+#revealButton1 {
     position: absolute;
     top: 10px;  /* Adjust as needed */
     left: 10px; /* Adjust as needed */
     width: 180px; /* Adjust width */
     height: 60px; /* Adjust height */
     z-index: 1000; /* Ensure it's on top */
+    opacity: 0;
 }
 
+#revealButton2 {
+    position: absolute;
+    top: 10px;  /* Adjust as needed */
+    left: 220px; /* Adjust as needed */
+    width: 180px; /* Adjust width */
+    height: 60px; /* Adjust height */
+    z-index: 1000; /* Ensure it's on top */
+    opacity: 0;
+}
+
+#nameDropdown {
+    position: absolute;
+    bottom: 85%;
+    left: 15%;
+    width: 40%;
+    height: 50px;
+    z-index: 1000;
+}
+
+#generateButton {
+    position: absolute;
+    bottom: 5%;
+    left: 60%;
+    width: 20%;
+    z-index: 1000;
+}
 
 /* Initially Hidden Container */
 .hidden {
@@ -47,19 +74,20 @@ body {
     position: absolute;
     width: 170px;  /* Adjust size as needed */
     height: 170px; /* Adjust size as needed */
-    top: 550px;      /* Positioning */
-    left: 112px;     /* Positioning */
+    top: 65.5%;      /* Positioning */
+    left: 51%;     /* Positioning */
     transform: translate(-50%, -50%); /* Center the QR code */
 }
 
-input[type="text"] {
+input[type="number"] {
     position: absolute;
-    bottom: 10%; /* Position input field towards the bottom */
-    width: 80%;
+    bottom: 5%; /* Position input field towards the bottom */
+    width: 50%;
     padding: 10px;
     font-size: 18px;
     border-radius: 5px;
     border: 1px solid #ccc;
+    z-index: 1000;
 }
 
 button:hover {

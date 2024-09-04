@@ -10,11 +10,19 @@
 
 <body>
     <!-- Visible Button at the Top for Testing -->
-    <button id="revealButton"></button>
+    <button id="revealButton1"></button>
+    <button id="revealButton2"></button>
+
     <div id="inputContainer" class="hidden">
-        <input type="text" id="text" placeholder="Enter text" />
-        <button onclick="generateQRCode()">Generate QR Code</button>
+        <input type="number" id="numInput" placeholder="00XXXXXX" />
+        <button id="generateButton" onclick="generateQRCode(); document.getElementById('inputContainer').classList.toggle('hidden');">Generate QR Code</button>
     </div>
+
+    <select id="nameDropdown" onchange="generateQRCode(); document.getElementById('nameDropdown').classList.toggle('hidden');" class="hidden">
+        <option value="">Select a name</option>
+        <option value="Adam">002140122</option>
+        <option value="Evan">002346274</option>
+    </select>
 
     <div class="container">
         <!-- QR Code Display Area -->
@@ -24,21 +32,64 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <script>
-        console.log("DOM fully loaded and parsed");
-
-        function toggleInputField() {
-            console.log("Toggle function called");
+        function toggleNumInputField() {
+            console.log("ToggleNum function called");
             var inputContainer = document.getElementById("inputContainer");
             inputContainer.classList.toggle("hidden");
         }
+        function toggleDropInputField() {
+            console.log("ToggleDrop function called");
+            var nameDropdown = document.getElementById("nameDropdown");
+            nameDropdown.classList.toggle("hidden");
+        }
         function generateQRCode() {
-            var text = document.getElementById("text").value;
-            document.getElementById("qrcode").innerHTML = "";
-            var qrcode = new QRCode(document.getElementById("qrcode"), {
-                text: text,
-                width: 151,
-                height: 151
-            });
+            // Get the selected value from the dropdown
+            var selectedName = document.getElementById("nameDropdown").value;
+            // Get the value from the input field
+            var customInput = document.getElementById("numInput").value;
+
+            // Determine the source of the QR code text
+            var qrText = customInput ? customInput : selectedName;
+
+            // Generate the QR code if there is any text to generate from
+            if (qrText) {
+                document.getElementById("qrcode").innerHTML = ""; // Clear any previous QR code
+                var qrcode = new QRCode(document.getElementById("qrcode"), {
+                    text: qrText,
+                    width: 162,
+                    height: 162
+                });
+            } else {
+                document.getElementById("qrcode").innerHTML = ""; // Clear QR code if no text is provided
+            }
+            displayCurrentDateTime();
+        }
+        function displayCurrentDateTime() {
+            // Get the current date and time
+            const now = new Date();
+
+            // Format the date as MM-DD-YY
+            const formattedDate = `${now.getMonth() + 1}-${now.getDate()}-${String(now.getFullYear()).slice(-2)}`;
+
+            let dateTimeElement = document.getElementById('currentDateTime');
+            if (!dateTimeElement) {
+                dateTimeElement = document.createElement('div');
+                dateTimeElement.id = 'currentDateTime';
+                dateTimeElement.style.position = 'absolute';
+                dateTimeElement.style.top = '79.5%';
+                dateTimeElement.style.left = '50%';
+                dateTimeElement.style.transform = 'translate(-50%, -50%)';
+                dateTimeElement.style.fontSize = '18px';
+                dateTimeElement.style.fontFamily = 'Arial, sans-serif';
+                dateTimeElement.style.textAlign = 'center';
+                document.body.appendChild(dateTimeElement);
+    }
+
+            // Format the time as HH:MM am/pm
+            const hours = now.getHours();
+            const minutes = now.getMinutes();
+            const formattedTime = `${hours % 12 || 12}:${minutes < 10 ? '0' : ''}${minutes} ${hours >= 12 ? 'pm' : 'am'}`;
+            dateTimeElement.innerHTML = `${formattedDate}<br>${formattedTime}`;
         }
     
         if ('serviceWorker' in navigator) {
@@ -51,7 +102,8 @@
             });
         }
         
-        document.getElementById("revealButton").addEventListener("click", toggleInputField);
+        document.getElementById("revealButton1").addEventListener("click", toggleNumInputField);
+        document.getElementById("revealButton2").addEventListener("click", toggleDropInputField);
     </script>
 </body>
 </html>
