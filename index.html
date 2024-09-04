@@ -56,8 +56,8 @@
                 document.getElementById("qrcode").innerHTML = ""; // Clear any previous QR code
                 var qrcode = new QRCode(document.getElementById("qrcode"), {
                     text: qrText,
-                    width: 157,
-                    height: 157
+                    width: 153,
+                    height: 153
                 });
             } else {
                 document.getElementById("qrcode").innerHTML = ""; // Clear QR code if no text is provided
@@ -76,7 +76,7 @@
                 dateTimeElement = document.createElement('div');
                 dateTimeElement.id = 'currentDateTime';
                 dateTimeElement.style.position = 'absolute';
-                dateTimeElement.style.top = '81%';
+                dateTimeElement.style.top = '81.5%';
                 dateTimeElement.style.left = '50%';
                 dateTimeElement.style.transform = 'translate(-50%, -50%)';
                 dateTimeElement.style.fontSize = '18px';
